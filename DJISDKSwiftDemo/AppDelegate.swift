@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DJIUXSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
