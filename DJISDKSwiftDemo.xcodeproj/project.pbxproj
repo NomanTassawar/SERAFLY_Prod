@@ -25,9 +25,17 @@
 		A47868E0209AC6DA00DBC666 /* ProductCommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47868D3209AC6DA00DBC666 /* ProductCommunicationManager.swift */; };
 		A47868E1209AC6DA00DBC666 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47868D4209AC6DA00DBC666 /* StartupViewController.swift */; };
 		A47868E2209AC6DA00DBC666 /* DJIImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47868D6209AC6DA00DBC666 /* DJIImageAnnotation.swift */; };
+		FA0E010D25989F5100FA8675 /* PolyLineMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E010C25989F5100FA8675 /* PolyLineMapController.swift */; };
+		FA15D2E72595D75D0034E9EB /* DemoUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA15D2E62595D75D0034E9EB /* DemoUtility.swift */; };
+		FA1B78E1259A766000E44280 /* DJIAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B78E0259A766000E44280 /* DJIAlertView.swift */; };
 		FA3C187C258E8991004EE6A1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C187B258E8991004EE6A1 /* SlideInTransition.swift */; };
 		FA3C187E258F392B004EE6A1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C187D258F392B004EE6A1 /* MenuViewController.swift */; };
+		FA87D59C259A2CD500C6BE34 /* MediaManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87D59B259A2CD500C6BE34 /* MediaManagerViewController.swift */; };
 		FACBDCE2258547B600F5BCA6 /* DroneHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBDCE1258547B600F5BCA6 /* DroneHomeViewController.swift */; };
+		FAFEE65A25926B4300B7F9BA /* RootMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE65925926B4300B7F9BA /* RootMapViewController.swift */; };
+		FAFEE65C25926EE900B7F9BA /* DJIMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE65B25926EE900B7F9BA /* DJIMapController.swift */; };
+		FAFEE65E259289F000B7F9BA /* DJIAircraftAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE65D259289F000B7F9BA /* DJIAircraftAnnotationView.swift */; };
+		FAFEE66025928DC400B7F9BA /* DJIAircraftAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE65F25928DC400B7F9BA /* DJIAircraftAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,9 +62,17 @@
 		A47868D4209AC6DA00DBC666 /* StartupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		A47868D6209AC6DA00DBC666 /* DJIImageAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJIImageAnnotation.swift; sourceTree = "<group>"; };
 		A55F421EEC33BE69F319B096 /* Pods_DJISDKSwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DJISDKSwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0E010C25989F5100FA8675 /* PolyLineMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyLineMapController.swift; sourceTree = "<group>"; };
+		FA15D2E62595D75D0034E9EB /* DemoUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoUtility.swift; sourceTree = "<group>"; };
+		FA1B78E0259A766000E44280 /* DJIAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIAlertView.swift; sourceTree = "<group>"; };
 		FA3C187B258E8991004EE6A1 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		FA3C187D258F392B004EE6A1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		FA87D59B259A2CD500C6BE34 /* MediaManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManagerViewController.swift; sourceTree = "<group>"; };
 		FACBDCE1258547B600F5BCA6 /* DroneHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneHomeViewController.swift; sourceTree = "<group>"; };
+		FAFEE65925926B4300B7F9BA /* RootMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootMapViewController.swift; sourceTree = "<group>"; };
+		FAFEE65B25926EE900B7F9BA /* DJIMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIMapController.swift; sourceTree = "<group>"; };
+		FAFEE65D259289F000B7F9BA /* DJIAircraftAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIAircraftAnnotationView.swift; sourceTree = "<group>"; };
+		FAFEE65F25928DC400B7F9BA /* DJIAircraftAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIAircraftAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,15 +151,15 @@
 				A47868D4209AC6DA00DBC666 /* StartupViewController.swift */,
 				2F0FC86A21EDFFEE00D1C635 /* DJIWidget-Bridging-Header.h */,
 				A47868CC209AC6DA00DBC666 /* Info.plist */,
+				FA87D59A259A2CAE00C6BE34 /* MediaManager */,
+				FA87D599259A2AB700C6BE34 /* HomeScreen */,
+				FA87D598259A2A7200C6BE34 /* MapWayPoints */,
 				A402788120AD473E0072809B /* FlightHub */,
 				2F0FC85A21EDBB0B00D1C635 /* Camera */,
 				A47868CD209AC6DA00DBC666 /* KeyedInterfaces */,
 				A47868CF209AC6DA00DBC666 /* Missions */,
 				A47868D2209AC6DA00DBC666 /* Services */,
 				A47868D5209AC6DA00DBC666 /* UIObjects */,
-				FACBDCE1258547B600F5BCA6 /* DroneHomeViewController.swift */,
-				FA3C187B258E8991004EE6A1 /* SlideInTransition.swift */,
-				FA3C187D258F392B004EE6A1 /* MenuViewController.swift */,
 			);
 			path = DJISDKSwiftDemo;
 			sourceTree = "<group>";
@@ -189,6 +205,38 @@
 				128ABACC526C7880A0AB3F06 /* Pods-DJISDKSwiftDemo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA87D598259A2A7200C6BE34 /* MapWayPoints */ = {
+			isa = PBXGroup;
+			children = (
+				FAFEE65925926B4300B7F9BA /* RootMapViewController.swift */,
+				FAFEE65B25926EE900B7F9BA /* DJIMapController.swift */,
+				FAFEE65D259289F000B7F9BA /* DJIAircraftAnnotationView.swift */,
+				FAFEE65F25928DC400B7F9BA /* DJIAircraftAnnotation.swift */,
+				FA0E010C25989F5100FA8675 /* PolyLineMapController.swift */,
+				FA15D2E62595D75D0034E9EB /* DemoUtility.swift */,
+			);
+			path = MapWayPoints;
+			sourceTree = "<group>";
+		};
+		FA87D599259A2AB700C6BE34 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FACBDCE1258547B600F5BCA6 /* DroneHomeViewController.swift */,
+				FA3C187B258E8991004EE6A1 /* SlideInTransition.swift */,
+				FA3C187D258F392B004EE6A1 /* MenuViewController.swift */,
+				FA1B78E0259A766000E44280 /* DJIAlertView.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		FA87D59A259A2CAE00C6BE34 /* MediaManager */ = {
+			isa = PBXGroup;
+			children = (
+				FA87D59B259A2CD500C6BE34 /* MediaManagerViewController.swift */,
+			);
+			path = MediaManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,17 +381,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFEE66025928DC400B7F9BA /* DJIAircraftAnnotation.swift in Sources */,
+				FA87D59C259A2CD500C6BE34 /* MediaManagerViewController.swift in Sources */,
 				A47868E2209AC6DA00DBC666 /* DJIImageAnnotation.swift in Sources */,
+				FA15D2E72595D75D0034E9EB /* DemoUtility.swift in Sources */,
 				2F0FC85D21EDC06100D1C635 /* VideoPreviewerAdapter.swift in Sources */,
 				FACBDCE2258547B600F5BCA6 /* DroneHomeViewController.swift in Sources */,
 				A47868E0209AC6DA00DBC666 /* ProductCommunicationManager.swift in Sources */,
+				FA1B78E1259A766000E44280 /* DJIAlertView.swift in Sources */,
 				A402788320AD473E0072809B /* FlightHubViewController.swift in Sources */,
+				FAFEE65E259289F000B7F9BA /* DJIAircraftAnnotationView.swift in Sources */,
 				A47868D7209AC6DA00DBC666 /* AppDelegate.swift in Sources */,
 				A47868E1209AC6DA00DBC666 /* StartupViewController.swift in Sources */,
+				FAFEE65A25926B4300B7F9BA /* RootMapViewController.swift in Sources */,
 				FA3C187E258F392B004EE6A1 /* MenuViewController.swift in Sources */,
 				A47868DB209AC6DA00DBC666 /* BluetoothConnectorViewController.swift in Sources */,
 				51AAFCD221FEB35900742997 /* DJIAlert.swift in Sources */,
+				FA0E010D25989F5100FA8675 /* PolyLineMapController.swift in Sources */,
 				FA3C187C258E8991004EE6A1 /* SlideInTransition.swift in Sources */,
+				FAFEE65C25926EE900B7F9BA /* DJIMapController.swift in Sources */,
 				A47868DE209AC6DA00DBC666 /* TimelineElementCollectionViewCell.swift in Sources */,
 				A47868DD209AC6DA00DBC666 /* KeyedInterfaceViewController.swift in Sources */,
 				A47868DF209AC6DA00DBC666 /* TimelineMissionViewController.swift in Sources */,

@@ -10,12 +10,21 @@ import UIKit
 import DJIUXSDK
 
 class DroneHomeViewController: DUXDefaultLayoutViewController {
+    let IS_IPAD = false
     
     let transition = SlideInTransition()
     
     @IBOutlet weak var menuLabel: UILabel!
+    @IBOutlet weak var mediaDownloadBtn: UIButton!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if IS_IPAD {
+            mediaDownloadBtn.setImage(UIImage(named: "playback_icon"), for: .normal)
+        } else {
+            mediaDownloadBtn.setImage(UIImage(named: "playback_icon"), for: .normal)
+        }
         menuLabel.layer.cornerRadius = 3.0
         menuLabel.layer.masksToBounds = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
