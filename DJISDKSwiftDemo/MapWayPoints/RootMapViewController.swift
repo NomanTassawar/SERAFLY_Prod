@@ -69,7 +69,7 @@ class RootMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         userLocation = kCLLocationCoordinate2DInvalid
         droneLocation = kCLLocationCoordinate2DInvalid
 
-        mapController = DJIMapController()
+        mapController = DJIMapController(map: mapView)
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(addWaypoints(_:)))
         mapView?.addGestureRecognizer(tapGesture!)
 
@@ -83,7 +83,7 @@ class RootMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         super.viewDidLoad()
         
          userLocation = kCLLocationCoordinate2DInvalid
-        mapController = DJIMapController()
+        mapController = DJIMapController(map: mapView)
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(addWaypoints(_:)))
         mapView.addGestureRecognizer(tapGesture!)
        
@@ -190,7 +190,7 @@ class RootMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
             region.span.latitudeDelta = 0.001
             region.span.longitudeDelta = 0.001
             
-            let annotation = DJIAircraftAnnotation(coordiante: userLocation!)
+            let annotation = DJIAircraftAnnotation(coordinate: userLocation!)
             mapView.addAnnotation(annotation)
 
             mapView?.setRegion(region, animated: true)
@@ -237,6 +237,8 @@ class RootMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
         return nil
     }
+    
+    
     
     
     // Apply this Method for Polygons and PolyLines on Map.

@@ -10,15 +10,16 @@ import MapKit
 
 class DJIAircraftAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
+    var heading: CGFloat = 0.0
     
     weak var annotationView: DJIAircraftAnnotationView?
 
-  init(coordiante coordinate: CLLocationCoordinate2D) {
-    self.coordinate = coordinate
-    super.init()
-    
-        
-    }
+  init(coordinate: CLLocationCoordinate2D/*, heading: CGFloat*/) {
+     
+      self.coordinate = coordinate
+//      self.heading = heading
+     super.init()
+  }
 
     func setCoordinate(_ newCoordinate: CLLocationCoordinate2D) {
         coordinate = newCoordinate

@@ -9,7 +9,7 @@
 import UIKit
 import DJISDK
 
-class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMediaManagerDelegate{
+class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMediaManagerDelegate, UITextFieldDelegate{
     
     
     var mediaManager: DJIMediaManager?
@@ -17,7 +17,7 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
     var selectedCellIndexPath: IndexPath?
     
     // Processing on Media variables
-   // var statusAlertView: DJIAlertView?
+    var statusAlertView: DJIAlertView?
     var selectedMedia: DJIMediaFile?
     var previousOffset = 0
     var fileData: Data?
@@ -32,10 +32,16 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
     @IBOutlet private weak var displayImageView: UIImageView!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        positionTextField.delegate = self
         initData()
 
         // Do any additional setup after loading the view.
@@ -45,6 +51,7 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
         super.viewWillAppear(animated)
         let camera = DemoUtility.fetchCamera()
         if let camera = camera {
+            
             camera.delegate = self
             mediaManager = camera.mediaManager
             mediaManager?.delegate = self
@@ -53,6 +60,7 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
                     print("setMode failed: \(error.localizedDescription)")
                 }
             })
+            self.loadMediaList();
         }
         
     }
@@ -78,7 +86,7 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
     }
     // MARK: - Custom Methods
     func initData() {
-        deleteBtn.isEnabled = false
+        //deleteBtn.isEnabled = false
         cancelBtn.isEnabled = false
         reloadBtn.isEnabled = false
         editBtn.isEnabled = false
@@ -86,9 +94,9 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
         fileData = nil
         selectedMedia = nil
         previousOffset = 0
-
-//        statusView = DJIScrollView(viewController: self)
-//        statusView.isHidden = true
+        print("Will have to Comment Back these lines")
+        //statusView = DJIScrollView(viewController: self)
+        //statusView.isHidden = true
     }
 
     /*
@@ -127,47 +135,44 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
 
     @IBAction func downloadBtnAction(_ sender: Any) {
         print("Downloading Media")
-//        let isPhoto = selectedMedia.mediaType == DJIMediaTypeJPEG || selectedMedia.mediaType == DJIMediaTypeTIFF
-//        //WeakRef(target)
-//        if statusAlertView == nil {
-//            let message = "Fetch Media Data \n 0.0"
-//            statusAlertView = DJIAlertView.show(withMessage: message, titles: ["Cancel"], action: { buttonIndex in
-//                WeakReturn(target)
-//                if buttonIndex == 0 {
-//                    target.selectedMedia.stopFetchingFileData(withCompletion: { error in
-//                        target.statusAlertView = nil
-//                    })
-//                }
-//            })
-//        }
-//
-//        selectedMedia.fetchFileData(withOffset: previousOffset, updateQueue: DispatchQueue.main, updateBlock: { data, isComplete, error in
-//            WeakReturn(target)
-//            if let error = error {
-//                target.statusAlertView.updateMessage("Download Media Failed:\(error)")
-//                target.perform(#selector(dismissStatusAlertView), with: nil, afterDelay: 2.0)
-//            } else {
+        let isPhoto = selectedMedia?.mediaType == DJIMediaType.JPEG || selectedMedia?.mediaType == DJIMediaType.TIFF
+       // WeakRef(target)
+        if statusAlertView == nil {
+            let message = "Fetch Media Data \n 0.0"
+            statusAlertView = DJIAlertView.show(withMessage: message, titles: ["Cancel"], action: { buttonIndex in
+                //WeakReturn(target)
+                if buttonIndex == 0 {
+                    self.selectedMedia?.stopFetchingFileData(completion: { error in
+                        self.statusAlertView = nil
+                    })
+                }
+            })
+        }
+        selectedMedia?.fetchData(withOffset: UInt(previousOffset), update: DispatchQueue.main, update: { data, isComplete, error in
+            //WeakReturn(target)
+            if let error = error {
+                self.statusAlertView?.updateMessage("Download Media Failed:\(error)")
+                self.perform(#selector(self.dismissStatusAlertView), with: nil, afterDelay: 2.0)
+            }
+            if isPhoto {
+                if self.fileData == nil {
+                    self.fileData = data
+                } else {
+                    self.fileData?.append(data!)
+                }
+            }
+            self.previousOffset += (data?.count)!
+            let progress: Float = Float(self.previousOffset) * 100.0 / Float(self.selectedMedia!.fileSizeInBytes)
+            self.statusAlertView?.updateMessage(String(format: "Downloading: %0.1f%%", progress))
+            print("Will have to Comment Back this if")
+//            if (self.previousOffset == self.selectedMedia?.fileSizeInBytes) && isComplete {
+//                self.dismissStatusAlertView()
 //                if isPhoto {
-//                    if target.fileData == nil {
-//                        target.fileData = data
-//                    } else {
-//                        if let data = data {
-//                            target.fileData.append(data)
-//                        }
-//                    }
-//                }
-//                target.previousOffset += data.length
-//                let progress: Float = target.previousOffset * 100.0 / target.selectedMedia.fileSizeInBytes
-//                target.statusAlertView.updateMessage(String(format: "Downloading: %0.1f%%", progress))
-//                if target.previousOffset == target.selectedMedia.fileSizeInBytes && isComplete {
-//                    target.dismissStatusAlertView()
-//                    if isPhoto {
-//                        target.showPhoto(withData: target.fileData)
-//                        target.savePhoto(withData: target.fileData)
-//                    }
+//                    self.showPhoto(with: self.fileData)
+//                    self.savePhoto(with: self.fileData)
 //                }
 //            }
-//        })
+        })
 
     }
 
@@ -232,24 +237,28 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
     
     
     func manager(_ manager: DJIMediaManager, didUpdate state: DJIMediaVideoPlaybackState) {
-//        var stateStr = ""
-//        if state.playingMedia == nil {
-//            stateStr += "No media\n"
-//        } else {
-//            if let fileName = state.playingMedia.fileName {
-//                stateStr += "media: \(fileName)\n"
-//            }
-//            if let durationInSeconds = state.playingMedia.durationInSeconds {
-//                stateStr += "Total: \(durationInSeconds)\n"
-//            }
-//            stateStr += "Orientation: \(orientation(toString: state?.playingMedia.videoOrientation))\n"
-//        }
-//        stateStr += "Status: \(status(toString: state?.playbackStatus))\n"
-//        if let playingPosition = state.playingPosition {
-//            stateStr += "Position: \(playingPosition)\n"
-//        }
-//
-//        statusView.writeStatus(stateStr)
+        var stateStr = ""
+        if state.playingMedia == nil {
+            stateStr += "No media\n"
+        } else {
+            state.playingMedia.fileName
+             let fileName = state.playingMedia.fileName
+            if fileName != nil{
+                stateStr += "media: \(fileName)\n"
+            }
+            let durationInSeconds = state.playingMedia.durationInSeconds
+            if durationInSeconds != nil{
+                stateStr += "Total: \(durationInSeconds)\n"
+            }
+            stateStr += "Orientation: \(orientation(toString: state.playingMedia.videoOrientation))\n"
+        }
+        stateStr += "Status: \(status(toString: state.playbackStatus))\n"
+         let playingPosition = state.playingPosition
+        if playingPosition != nil{
+            stateStr += "Position: \(playingPosition)\n"
+        }
+        print("Will have to Remove this comment")
+        //statusView.writeStatus(stateStr)
         print("Status of playing is updating")
     }
     func status(toString status: DJIMediaVideoPlaybackStatus) -> String? {
@@ -277,6 +286,12 @@ class MediaManagerViewController: UIViewController , DJICameraDelegate, DJIMedia
                 break
         }
         return nil
+    }
+    
+    
+    @objc func dismissStatusAlertView() {
+        statusAlertView?.dismissAlertView()
+        statusAlertView = nil
     }
     
     
@@ -312,15 +327,15 @@ extension MediaManagerViewController{
             message = "Saved to Photo Album"
         }
 
-        //WeakRef(target)
-//        if statusAlertView == nil {
-//            statusAlertView = DJIAlertView.show(withMessage: message, titles: ["Dismiss"], action: { buttonIndex in
-//                WeakReturn(target)
-//                if buttonIndex == 0 {
-//                    target.dismissStatusAlertView()
-//                }
-//            })
-//        }
+       // WeakRef(target)
+        if statusAlertView == nil {
+            statusAlertView = DJIAlertView.show(withMessage: message, titles: ["Dismiss"], action: { buttonIndex in
+                //WeakReturn(target)
+                if buttonIndex == 0 {
+                    self.dismissStatusAlertView()
+                }
+            })
+        }
     }
     func loadMediaList() {
         loadingIndicator.isHidden = false

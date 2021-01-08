@@ -18,6 +18,8 @@ class DJIAircraftAnnotationView: MKAnnotationView {
         image = UIImage(named: "aircraft.png")
     }
     
+    
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -25,5 +27,6 @@ class DJIAircraftAnnotationView: MKAnnotationView {
         transform = CGAffineTransform.identity
         transform = CGAffineTransform(rotationAngle: CGFloat(heading))
     }
+    
 
 }
