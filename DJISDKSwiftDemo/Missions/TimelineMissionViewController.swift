@@ -378,9 +378,13 @@ class TimelineMissionViewController: UIViewController, UICollectionViewDelegate,
             return nil
         }
         
+        
+        
+        
         guard let droneLocationValue = DJISDKManager.keyManager()?.getValueFor(droneLocationKey) else {
             return nil
         }
+      
         
         let droneLocation = droneLocationValue.value as! CLLocation
         let droneCoordinates = droneLocation.coordinate
@@ -388,6 +392,8 @@ class TimelineMissionViewController: UIViewController, UICollectionViewDelegate,
         if !CLLocationCoordinate2DIsValid(droneCoordinates) {
             return nil
         }
+        
+        
 
         mission.pointOfInterest = droneCoordinates
         let offset = 0.0000899322
