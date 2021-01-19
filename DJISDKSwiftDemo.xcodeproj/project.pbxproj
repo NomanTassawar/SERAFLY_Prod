@@ -40,6 +40,7 @@
 		FA97EEC425A0A0E4006BA621 /* DJICircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97EEC325A0A0E4006BA621 /* DJICircle.swift */; };
 		FA97EEC625A0A140006BA621 /* DJIMapPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97EEC525A0A140006BA621 /* DJIMapPolygon.swift */; };
 		FA97EEC825A0A1A2006BA621 /* DJIFlyZoneColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97EEC725A0A1A2006BA621 /* DJIFlyZoneColorProvider.swift */; };
+		FAC9D3DF25AA4C9C00C3553A /* GridAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9D3DE25AA4C9C00C3553A /* GridAnnotation.swift */; };
 		FACBDCE2258547B600F5BCA6 /* DroneHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBDCE1258547B600F5BCA6 /* DroneHomeViewController.swift */; };
 		FAFEE65A25926B4300B7F9BA /* RootMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE65925926B4300B7F9BA /* RootMapViewController.swift */; };
 		FAFEE65C25926EE900B7F9BA /* DJIMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE65B25926EE900B7F9BA /* DJIMapController.swift */; };
@@ -86,6 +87,7 @@
 		FA97EEC325A0A0E4006BA621 /* DJICircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJICircle.swift; sourceTree = "<group>"; };
 		FA97EEC525A0A140006BA621 /* DJIMapPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIMapPolygon.swift; sourceTree = "<group>"; };
 		FA97EEC725A0A1A2006BA621 /* DJIFlyZoneColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIFlyZoneColorProvider.swift; sourceTree = "<group>"; };
+		FAC9D3DE25AA4C9C00C3553A /* GridAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridAnnotation.swift; sourceTree = "<group>"; };
 		FACBDCE1258547B600F5BCA6 /* DroneHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneHomeViewController.swift; sourceTree = "<group>"; };
 		FAFEE65925926B4300B7F9BA /* RootMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootMapViewController.swift; sourceTree = "<group>"; };
 		FAFEE65B25926EE900B7F9BA /* DJIMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIMapController.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				FA97EEC325A0A0E4006BA621 /* DJICircle.swift */,
 				FA97EEC525A0A140006BA621 /* DJIMapPolygon.swift */,
 				FA97EEC725A0A1A2006BA621 /* DJIFlyZoneColorProvider.swift */,
+				FAC9D3DE25AA4C9C00C3553A /* GridAnnotation.swift */,
 			);
 			path = MapWayPoints;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				FA97EEBC25A08EE6006BA621 /* DJIMapOverlay.swift in Sources */,
 				FA0E010D25989F5100FA8675 /* PolyLineMapController.swift in Sources */,
 				FA97EEC825A0A1A2006BA621 /* DJIFlyZoneColorProvider.swift in Sources */,
+				FAC9D3DF25AA4C9C00C3553A /* GridAnnotation.swift in Sources */,
 				FA3C187C258E8991004EE6A1 /* SlideInTransition.swift in Sources */,
 				FA97EEC425A0A0E4006BA621 /* DJICircle.swift in Sources */,
 				FAFEE65C25926EE900B7F9BA /* DJIMapController.swift in Sources */,
